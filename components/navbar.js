@@ -79,12 +79,12 @@ const Navbar = props => {
           <LinkItem href="/works" path={path}>
             Works
           </LinkItem>
-          <LinkItem href="/posts" path={path}>
-            Posts
+          <LinkItem href="/blog" path={path}>
+            Blog
           </LinkItem>
           <LinkItem
             target="_blank"
-            href="https://github.com/gabogarciam"
+            href="https://github.com/gabogarciam/gabogarcia.dev"
             path={path}
             display="inline-flex"
             alignItems="center"
@@ -123,16 +123,21 @@ const Navbar = props => {
                 <MenuItem as={MenuLink} href="/works">
                   Works
                 </MenuItem>
-                <MenuItem as={MenuLink} href="/posts">
-                  Posts
+                <MenuItem as={MenuLink} href="/blog">
+                  Blog
                 </MenuItem>
                 <MenuItem
                   as={Link}
                   href="https://github.com/gabogarciam/gabogarcia.dev"
+                  target="_blank"
                 >
                   View Source
                 </MenuItem>
-                <MenuItem as={Link} href="https://gabogarcia.dev/">
+                <MenuItem
+                  as={Link}
+                  href="https://gabogarcia.dev/"
+                  target="_blank"
+                >
                   Resume
                 </MenuItem>
               </MenuList>
