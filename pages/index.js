@@ -1,12 +1,17 @@
 import {
   Container,
+  Button,
   Box,
   Heading,
-  useColorModeValue,
+  Link,
+  List,
+  ListItem,
+  useColorModeValue
 } from '@chakra-ui/react'
 import TadaAnimation from '../components/icons/tada-animation'
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
+import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub } from 'react-icons/io5'
 
 const Home = () => {
   return (
@@ -74,6 +79,49 @@ const Home = () => {
               fostering a community of like-minded adventurers, developers, and
               photography enthusiasts.
             </Paragraph>
+          </Section>
+          <Section delay={0.4}>
+            <Heading as="h3" variant="section-title">
+              Follow me on
+            </Heading>
+            <List>
+              <ListItem>
+                <Link href="https://github.com/gabogarciam" target="_blank">
+                  <Button
+                    variant="ghost"
+                    colorScheme="teal"
+                    leftIcon={<IoLogoGithub />}
+                  >
+                    @github
+                  </Button>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://twitter.com/arkaamreg" target="_blank">
+                  <Button
+                    variant="ghost"
+                    colorScheme="teal"
+                    leftIcon={<IoLogoTwitter />}
+                  >
+                    @twitter
+                  </Button>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link
+                  href="https://instagram.com/gabrielgarrcia"
+                  target="_blank"
+                >
+                  <Button
+                    variant="ghost"
+                    colorScheme="teal"
+                    leftIcon={<IoLogoInstagram />}
+                  >
+                    @instagram
+                  </Button>
+                </Link>
+              </ListItem>
+            </List>
           </Section>
         </Box>
       </Box>

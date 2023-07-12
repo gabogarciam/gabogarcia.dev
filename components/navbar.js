@@ -17,6 +17,7 @@ import {
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
+import { IoLogoGithub } from 'react-icons/io5'
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
   const active = path === href
@@ -76,11 +77,11 @@ const Navbar = props => {
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
-          <LinkItem href="/works" path={path}>
-            Works
-          </LinkItem>
           <LinkItem href="/blog" path={path}>
             Blog
+          </LinkItem>
+          <LinkItem href="/works" path={path}>
+            Works
           </LinkItem>
           <LinkItem
             target="_blank"
@@ -91,11 +92,12 @@ const Navbar = props => {
             style={{ gap: 4 }}
             pl={2}
           >
+            <IoLogoGithub />
             Source
           </LinkItem>
           <LinkItem
             target="_blank"
-            href="https://gabogarcia.dev/"
+            href="https://gabogarciam.github.io/resume/"
             path={path}
             display="inline-flex"
             alignItems="center"
@@ -120,11 +122,11 @@ const Navbar = props => {
                 <MenuItem as={MenuLink} href="/">
                   About
                 </MenuItem>
-                <MenuItem as={MenuLink} href="/works">
-                  Works
-                </MenuItem>
                 <MenuItem as={MenuLink} href="/blog">
                   Blog
+                </MenuItem>
+                <MenuItem as={MenuLink} href="/works">
+                  Works
                 </MenuItem>
                 <MenuItem
                   as={Link}
@@ -135,7 +137,7 @@ const Navbar = props => {
                 </MenuItem>
                 <MenuItem
                   as={Link}
-                  href="https://gabogarcia.dev/"
+                  href="https://gabogarciam.github.io/resume/"
                   target="_blank"
                 >
                   Resume
