@@ -15,7 +15,7 @@ import {
   IconButton,
   useColorModeValue
 } from '@chakra-ui/react'
-import { HamburgerIcon } from '@chakra-ui/icons'
+import { ExternalLinkIcon, HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
 import { IoLogoGithub } from 'react-icons/io5'
 
@@ -78,7 +78,10 @@ const Navbar = props => {
           mt={{ base: 4, md: 0 }}
         >
           <LinkItem href="/blog" path={path}>
-            Blog
+            DevBlog
+          </LinkItem>
+          <LinkItem href="/climbing" path={path}>
+            Climbing
           </LinkItem>
           <LinkItem href="/works" path={path}>
             Works
@@ -93,7 +96,7 @@ const Navbar = props => {
             pl={2}
           >
             <IoLogoGithub />
-            Source
+            Source<ExternalLinkIcon mx='2px' />
           </LinkItem>
           <LinkItem
             target="_blank"
@@ -104,7 +107,7 @@ const Navbar = props => {
             style={{ gap: 4 }}
             pl={2}
           >
-            Resume
+            Resume<ExternalLinkIcon mx='2px' />
           </LinkItem>
         </Stack>
 
@@ -123,7 +126,10 @@ const Navbar = props => {
                   About
                 </MenuItem>
                 <MenuItem as={MenuLink} href="/blog">
-                  Blog
+                  DevBlog
+                </MenuItem>
+                <MenuItem as={MenuLink} href="/climbing">
+                  Climbing
                 </MenuItem>
                 <MenuItem as={MenuLink} href="/works">
                   Works
@@ -133,14 +139,14 @@ const Navbar = props => {
                   href="https://github.com/gabogarciam/gabogarcia.dev"
                   target="_blank"
                 >
-                  View Source
+                  View Source<ExternalLinkIcon mx='2px' />
                 </MenuItem>
                 <MenuItem
                   as={Link}
                   href="https://gabogarciam.github.io/resume/"
                   target="_blank"
                 >
-                  Resume
+                  Resume<ExternalLinkIcon mx='2px' />
                 </MenuItem>
               </MenuList>
             </Menu>
