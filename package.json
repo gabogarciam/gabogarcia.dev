@@ -4,7 +4,7 @@
   "description": "Gabriel website",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev -H 0.0.0.0",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "prettier": "prettier -write .",
@@ -13,20 +13,39 @@
   "keywords": [],
   "author": "Gabriel García",
   "license": "MIT",
+  "overrides": {
+    "@opentelemetry/api": "1.4.1",
+    "@opentelemetry/core": "1.13.0",
+    "@opentelemetry/exporter-trace-otlp-grpc": "0.39.1",
+    "@opentelemetry/resources": "1.13.0",
+    "@opentelemetry/sdk-trace-base": "1.13.0",
+    "@opentelemetry/sdk-trace-node": "1.13.0",
+    "@opentelemetry/semantic-conventions": "1.13.0"
+  },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "^2.5.2",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "contentlayer": "^0.3.2",
+    "date-fns": "^2.30.0",
     "framer-motion": "^10.6.0",
-    "next": "^13.2.4",
+    "next": "^13.4.8",
+    "next-contentlayer": "^0.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1"
   },
   "devDependencies": {
+    "@types/react": "18.2.15",
     "eslint": "^8.36.0",
     "eslint-config-next": "^13.2.4",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.4",
+    "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-pretty-code": "^0.10.0",
+    "rehype-slug": "^5.1.0",
+    "remark-gfm": "^3.0.1",
+    "shiki": "^0.14.3"
   }
 }
