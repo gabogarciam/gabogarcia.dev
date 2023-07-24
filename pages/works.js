@@ -11,7 +11,7 @@ const Works = () => {
     >
       <Container>
         <Heading as="h1" align="center">
-            👷🏽‍♂️ | Sorry this page is under construction.
+            👷🏽‍♂️ | Working on my first few posts... check back soon.
         </Heading>
         <Divider my={6} />
         <Box my={6} align="center">
