@@ -1,14 +1,19 @@
-article p {
+.mdx p,
+.mdx h1,
+.mdx h2,
+.mdx h3 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+  font-size: revert;
+  font-weight: revert;
 }
 
-article ol, ul {
-  margin-left: 1.5rem;
-  margin-right: 1rem;
+.mdx ol,
+.mdx ul {
+  margin-left: 2rem !important;
 }
 
-article .anchor {
+.mdx .anchor {
   position: absolute;
   visibility: hidden;
   text-decoration: none;
@@ -19,12 +24,12 @@ article .anchor {
   cursor: pointer;
 }
 
-article .anchor:hover {
+.mdx .anchor:hover {
   visibility: visible;
   text-decoration: none;
 }
 
-article a .anchor {
+.mdx a .anchor {
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
@@ -41,7 +46,7 @@ article a .anchor {
   }
 }
 
-article .anchor:after {
+.mdx .anchor:after {
   content: '#';
   color: #f0f0f4;
   @media (prefers-color-scheme: dark) {
@@ -49,17 +54,13 @@ article .anchor:after {
   }
 }
 
-article *:hover > .anchor {
+.mdx *:hover > .anchor {
   visibility: visible;
 } 
 
 pre {
   border: 1px solid #4a5568;
   background-color: #1a202c;
-}
-
-img {
-  margin: 0;
 }
 
 table {
@@ -69,10 +70,6 @@ table {
   white-space: nowrap;
 }
 
-.callout > p {
-  margin: 0 !important;
-}
-
 [data-rehype-pretty-code-fragment] code {
   display: grid;
   min-width: 100%;
@@ -80,7 +77,7 @@ table {
   border-radius: 0;
   border: 0;
   background-color: transparent;
-  padding: 0;
+  padding: 1rem 1.5rem;
   font-size: 0.875rem;
   color: #000000;
   counter-reset: line;
@@ -129,7 +126,6 @@ table {
 }
 
 [data-rehype-pretty-code-title] + pre {
-  padding: 1rem 1.5rem;
   margin-top: 0;
   border-radius: 0 0 0.375rem 0.375rem;
 }
