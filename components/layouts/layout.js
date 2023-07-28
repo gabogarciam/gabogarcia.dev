@@ -3,7 +3,7 @@ import Navbar from '../navbar'
 import { Box, Container } from '@chakra-ui/react'
 import Footer from '../footer'
 
-const RootLayout = ({ metadata, children, router }) => {
+const RootLayout = ({ children, router }) => {
   return (
     <Box as="main" pb={8}>
       <Head>

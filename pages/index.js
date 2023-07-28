@@ -20,7 +20,7 @@ const Home = () => {
         borderRadius="lg"
         bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         p={3}
-        mt={3}
+        mt={6}
         mb={6}
         textAlign="center"
         css={{ backdropFilter: 'blur(10px)' }}

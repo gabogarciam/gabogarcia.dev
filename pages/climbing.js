@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import NextLink from 'next/link'
 import { Box, Text, Heading, Container } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { allClimbs } from 'contentlayer/generated';
