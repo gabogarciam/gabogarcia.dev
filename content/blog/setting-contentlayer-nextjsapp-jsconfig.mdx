@@ -1,0 +1,152 @@
+---
+title: 'Setting up Contentlayer in a Next.js App with jsconfig.json'
+publishedAt: '2023-07-12'
+summary: 'In this tutorial, we&apos;ll walk through the process of setting up Contentlayer in a Next.js app using a `jsconfig.json` file.'
+---
+
+As developer, I like to have absolute autonomy over my blog while effortlessly integrating content into my pages without getting bogged down by intricate implementations.
+
+Throughout my short experience with WordPress, I have found it functional, but it lacks the level of control I desire for implementing my website. I often feel disconnected from the underlying workings, and I'm unable to fully customize them to align perfectly with my needs.
+
+What I truly seek is a solution that allows me to incorporate features akin to those found in a typical JavaScript website. However, I also yearn for a seamless process of creating and serving content without unnecessary complexities.
+
+In essence, I'm looking for a platform that combines the best of both worlds - flexibility and control of a JavaScript website and the user-friendly content creation and management tools, all harmoniously integrated to make me the life more easier as a developer.
+
+In this tutorial, we'll walk through the process of setting up Contentlayer in a Next.js app using a `jsconfig.json` file. Contentlayer is a flexible, markdown-based content management system that allows you to manage your application's content separately from the codebase. By the end of this tutorial, you'll be able to fetch and use content data from markdown files in your Next.js app.
+
+## Prerequisites
+
+Before you start, make sure you have the following prerequisites:
+
+1. Node.js installed on your machine (v14 or later recommended).
+2. npm or yarn package manager.
+
+## Step 1: Set up a new Next.js project
+
+If you already have a Next.js project, you can skip this step. Otherwise, let's set up a new Next.js project:
+
+```bash
+npx create-next-app my-nextjs-app
+cd my-nextjs-app
+```
+
+## Step 2: Install Contentlayer and other dependencies
+
+Next, we'll install the required packages to use Contentlayer in our Next.js app:
+
+```bash
+# Using npm
+npm install contentlayer next-mdx-remote
+
+# Using yarn
+yarn add contentlayer next-mdx-remote
+```
+
+## Step 3: Create a `content` directory
+
+Inside your Next.js app root directory, create a new folder called `content`. This directory will store all your content data in markdown files.
+
+## Step 4: Create a `jsconfig.json` file
+
+Now, create a `jsconfig.json` file in the root directory of your Next.js app. This file is used to configure the module resolution for JavaScript files.
+
+```json title="jsconfig.json"
+{
+  "compilerOptions": {
+    "baseUrl": "."
+  }
+}
+```
+
+## Step 5: Configure Contentlayer
+
+Create a new file named `contentlayer.config.js` in the root directory of your Next.js app. This file will hold the configuration for Contentlayer.
+
+```javascript title="contentlayer.config.js"
+import { defineDocumentType } from 'contentlayer/schema'
+import { withContentLayer } from 'next-contentlayer'
+
+export const config = withContentLayer({
+  contentDir: 'content',
+  documentTypes: [
+    defineDocumentType(() => ({
+      name: 'BlogPost',
+      filePathPattern: 'blog/**/*.mdx',
+      fields: {
+        title: { type: 'string' },
+        date: { type: 'string', format: 'date' },
+        content: { type: 'mdx' },
+      },
+    })),
+    // Add more document types as needed
+  ],
+})
+```
+
+In this configuration, we defined a document type called `BlogPost` that corresponds to markdown files located in the `content/blog` directory. You can create additional document types based on your specific needs.
+
+## Step 6: Create sample content
+
+Let's create a sample blog post as a markdown file in the `content/blog` directory. Create a new file called `my-first-blog-post.mdx` inside the `content/blog` directory with the following content:
+
+```markdown
+---
+title: My First Blog Post
+date: 2023-07-21
+---
+
+Welcome to my first blog post using Contentlayer in a Next.js app!
+```
+
+## Step 7: Fetch and use content in a Next.js page
+
+Now, let's fetch and use the content we created in our Next.js page. For this, create a new file named `index.js` inside the `pages` directory with the following content:
+
+```jsx title="pages/index.js"
+import { getContent } from 'next-contentlayer'
+
+export default function Home({ blogPosts }) {
+  return (
+    <div>
+      <h1>Welcome to my Next.js app with Contentlayer!</h1>
+      <h2>Blog Posts:</h2>
+      <ul>
+        {blogPosts.map((post) => (
+          <li key={post.title}>
+            <h3>{post.title}</h3>
+            <p>{post.date}</p>
+            <div>{post.content}</div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export async function getStaticProps() {
+  const blogPosts = await getContent({ type: 'BlogPost' })
+  return {
+    props: {
+      blogPosts,
+    },
+  }
+}
+```
+
+In this page, we're using `getContent()` to fetch all the `BlogPost` documents we defined earlier and rendering them on the homepage.
+
+## Step 8: Start the development server
+
+Finally, let's start the development server and see our Next.js app in action:
+
+```bash
+# Using npm
+npm run dev
+
+# Using yarn
+yarn dev
+```
+
+Visit `http://localhost:3000` in your browser to see the homepage with the sample blog post content fetched from the markdown file.
+
+Congratulations! You've successfully set up Contentlayer in your Next.js app using a `jsconfig.json` file. Now you can create more complex content structures and manage your app's content efficiently with Contentlayer. Happy coding!
